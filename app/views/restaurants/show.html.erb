@@ -1,19 +1,20 @@
-<div class="container">
-  <%= @restaurant.name%><br>
-  <%= @restaurant.address%><br>
-  <%= @restaurant.phone_number%><br>
-  <%= @restaurant.category%><br>
+<div class="mx-auto w-25">
+  <h2><%= @restaurant.name%></h2><br>
+  <h2><%= @restaurant.address%></h2><br>
+  <h2><%= @restaurant.phone_number%></h2><br>
+  <h2><%= @restaurant.category%></h2><br>
   <%= link_to "go back", restaurants_path %>
 </div>
 
-<div class="conatiner">
+<div class="w-25 mx-auto">
   <p><strong>Reviews:</strong></p>
-<ul class="list-group">
+<br><ul class="list-group">
   <% @restaurant.reviews.each do |review| %>
-    <li class="list-group-item"><%= review.content %></li>
+    <div class="list-group-item" style="width:250px;"><%= review.content %></div>
+    <div> <%= link_to "Delete",  review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure babe?"} %></div>
   <% end %>
 </ul>
 <br>
-<%= link_to "add a review",  new_restaurant_review_path(@restaurant) %>
 
 </div>
+<div style="width:150px"> <%= link_to "add a review",  new_restaurant_review_path(@restaurant), class:"btn mx-auto" %></div>
