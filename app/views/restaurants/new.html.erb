@@ -1,0 +1,13 @@
+<div class="container w-25 mt-5">
+  <h2 class="container mt-5">Add a new Restaurant</h2>
+    <di class=" container mt-2">
+      <%= simple_form_for(@restaurant) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :phone_number %>
+        <%= f.input :category %>
+        <%= f.submit %>
+      <% end %>
+      <%= link_to "go back", restaurants_path %>
+    </div>
+</div>
